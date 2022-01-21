@@ -1,0 +1,1 @@
+from gmapsplot import GMapsPlot

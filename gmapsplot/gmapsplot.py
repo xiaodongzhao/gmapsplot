@@ -2,7 +2,10 @@
 from __future__ import print_function, division
 import os
 import sys
-from StringIO import StringIO
+try:
+    from StringIO import StringIO
+except ModuleNotFoundError:
+    from io import StringIO
 import cv2
 import googlemaps
 import matplotlib.pyplot as plt
@@ -225,6 +228,5 @@ class GMapsPlot(object):
             origin = (extent[0]+extent[1])/2, (extent[2]+extent[3])/2
             extent[0:2] = extent[0:2]-origin[0]
             extent[2:4] = extent[2:4]-origin[1]
-            print(extent)
             ax.imshow(img_rgb, origin="lower", extent=extent)
         return fig, ax

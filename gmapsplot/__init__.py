@@ -1,1 +1,1 @@
-from gmapsplot import GMapsPlot
+from .gmapsplot import GMapsPlot

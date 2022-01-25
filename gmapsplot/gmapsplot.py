@@ -143,6 +143,8 @@ class GMapsPlot(object):
                 if chunk:
                     f.write(chunk)
             arr = np.frombuffer(f.getvalue(), np.uint8)
+            if (arr[0] != 137):
+                raise ValueError("Google Map response error: %s" % f.getvalue())
             f.close()
             image = cv2.imdecode(arr, cv2.IMREAD_COLOR)
             self.save_map_image(image, map_file)

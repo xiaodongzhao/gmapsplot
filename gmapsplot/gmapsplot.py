@@ -3,9 +3,9 @@ from __future__ import print_function, division
 import os
 import sys
 try:
-    from StringIO import StringIO
+    from StringIO import StringIO as MemoryIO
 except ModuleNotFoundError:
-    from io import StringIO
+    from io import BytesIO as MemoryIO
 import cv2
 import googlemaps
 import matplotlib.pyplot as plt
@@ -138,7 +138,7 @@ class GMapsPlot(object):
         if image is None:
             logger.info("Downloading map image centered at (%f,%f)" % (center[0], center[1]))
             response = self.gmaps_client.static_map(size=(int(size[0]), int(size[1])), zoom=int(zoom), center=center, maptype="satellite", format="png", scale=int(scale))
-            f = StringIO()
+            f = MemoryIO()
             for chunk in response:
                 if chunk:
                     f.write(chunk)

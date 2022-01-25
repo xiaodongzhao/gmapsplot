@@ -9,7 +9,7 @@ center = (52.382882, -1.565237) # this will be the x,y origin
 gmaps = GMapsPlot(api_key="GOOGLE_MAP_KEY", center=center, zoom=18, scale=1, size_meter=(200, 200))
 gmaps.download()
 fig, ax = gmaps.plot()
-ax.scatter([-56, -36, 10, 30, 95], [-42, -30, 10, 30, 95], s=20)
+ax.scatter([-56, -36, 10, 30, 90], [-42, -30, 10, 30, 90], s=20)
 plt.show()
 ```
 
